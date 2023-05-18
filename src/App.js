@@ -8,7 +8,7 @@ import css from "./app.module.css";
 import { contactInfo } from "contacts";
 class App extends Component {
   state = {
-    contacts: [],
+    contacts: contactInfo,
     filter: "",
   };
   filterHendler = () => {
@@ -51,10 +51,6 @@ class App extends Component {
   };
   // ===================>
   componentDidMount() {
-    const firstContacts = localStorage.setItem(
-      "contacts",
-      JSON.stringify(contactInfo)
-    );
     const contacts = localStorage.getItem("contacts");
     const parseContacts = JSON.parse(contacts);
     if (parseContacts) {
